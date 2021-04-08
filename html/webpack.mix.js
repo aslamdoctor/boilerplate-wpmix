@@ -20,6 +20,3 @@ mix
 	.sourceMaps(true, 'source-map')
 	.setPublicPath('dist');
 
-mix.autoload({
-	jquery: ['$', 'window.jQuery'],
-});
