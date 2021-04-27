@@ -13,13 +13,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
 /* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_1__);
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/src/jquery.js");
 
- // On Dom Ready
 
-$(function () {}); // After page loaded completely
 
-$(window).on('load', function () {});
+(function ($) {
+  // On Dom Ready
+  $(function () {
+    console.log('Dom loaded...');
+  }); // After page loaded completely
+
+  $(window).on('load', function () {});
+})(jQuery);
 
 /***/ }),
 
@@ -14966,7 +14970,6 @@ if ( true ) {
   \***************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-/* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/src/jquery.js");
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	__webpack_require__(/*! ../core */ "./node_modules/jquery/src/core.js")
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( jQuery ) {
@@ -14976,7 +14979,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 var
 
 	// Map over jQuery in case of overwrite
-	_jQuery = __webpack_provided_window_dot_jQuery,
+	_jQuery = window.jQuery,
 
 	// Map over the $ in case of overwrite
 	_$ = window.$;
@@ -14986,8 +14989,8 @@ jQuery.noConflict = function( deep ) {
 		window.$ = _$;
 	}
 
-	if ( deep && __webpack_provided_window_dot_jQuery === jQuery ) {
-		__webpack_provided_window_dot_jQuery = _jQuery;
+	if ( deep && window.jQuery === jQuery ) {
+		window.jQuery = _jQuery;
 	}
 
 	return jQuery;
@@ -14997,7 +15000,7 @@ jQuery.noConflict = function( deep ) {
 // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
 // and CommonJS for browser emulators (#13566)
 if ( typeof noGlobal === "undefined" ) {
-	__webpack_provided_window_dot_jQuery = window.$ = jQuery;
+	window.jQuery = window.$ = jQuery;
 }
 
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
