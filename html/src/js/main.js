@@ -6,7 +6,4 @@ import 'slick-carousel';
 	$(function () {
 		console.log('Dom loaded...');
 	});
-
-	// After page loaded completely
-	$(window).on('load', function () {});
 })(jQuery);

@@ -12403,21 +12403,29 @@ h3 {
   font-weight: 900;
 }
 
-.text-primary-color {
+/*
+ * Colors
+ */
+.text-black {
   color: #000000;
 }
 
-.bg-primary-color {
-  background-color: #000000;
+.text-red {
+  color: #ce0d0d;
+}
+
+.bg-black {
+  background: #000000;
+}
+
+.bg-red {
+  background: #ce0d0d;
 }
 
 /* 
 Usage:
 .icon-instagram{
-	width: 16px;
-	height: 16px;
-	-webkit-mask: url(../img/i_instagram.svg); mask: url(../img/i_instagram.svg);
-	@include svg_icon;	
+	@include svg_icon(30px, 30px, ../img/i_instagram.svg);	
 } 
 */
 .relative {
@@ -12561,12 +12569,6 @@ textarea,
   line-height: normal;
 }
 
-button,
-input[type=submit] {
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-
 .form-control {
   border-radius: 0px;
   background-clip: padding-box;
@@ -12589,10 +12591,6 @@ input[type=submit] {
 
 textarea.form-control {
   height: auto;
-}
-
-.form-group {
-  margin-bottom: 25px;
 }
 
 .the-button {
@@ -12619,10 +12617,13 @@ textarea.form-control {
   color: #fff !important;
 }
 
+:root {
+  font-size: 16px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #000000;
-  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -12666,8 +12667,6 @@ img {
 
 a {
   text-decoration: none;
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
 }
 
 i {
@@ -12761,4 +12760,4 @@ svg {
  * Partials
  */
 
-/*# sourceMappingURL=app.css.map*/
+/*# sourceMappingURL=main.css.map*/

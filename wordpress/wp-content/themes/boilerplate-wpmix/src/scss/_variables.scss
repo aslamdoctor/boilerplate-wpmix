@@ -1,11 +1,22 @@
-$primary_color: #000000;
-$heading-margin: 1.4rem;
-$content-margin: 1.4rem;
-$img-margin: 1.4rem;
+/*
+ * Colors
+ */
+$black: #000000;
+$red: #ce0d0d;
 
-.text-primary-color {
-	color: $primary_color;
+$colors: (
+	black: $black,
+	red: $red,
+);
+
+// Generate color classes e.g. bg-red, text-red
+@mixin gen-props($prefix, $property) {
+	@each $color-name, $color in $colors {
+		.#{'' + $prefix}-#{'' + $color-name} {
+			#{$property}: $color;
+		}
+	}
 }
-.bg-primary-color {
-	background-color: $primary_color;
-}
+
+@include gen-props('text', 'color');
+@include gen-props('bg', 'background');

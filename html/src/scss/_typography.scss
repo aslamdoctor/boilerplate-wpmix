@@ -1,3 +1,7 @@
+$heading-margin: 1.4rem;
+$content-margin: 1.4rem;
+$img-margin: 1.4rem;
+
 .typography {
 	h1 {
 		margin-bottom: $heading-margin;
@@ -61,7 +65,7 @@
 	}
 
 	a {
-		color: $primary_color;
+		color: $black;
 		text-decoration: underline;
 	}
 	a:hover {

@@ -1,7 +1,10 @@
+:root {
+	font-size: 16px;
+}
+
 body {
 	font-family: $font1;
-	color: $primary_color;
-	font-size: 16px;
+	color: $black;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 }
@@ -45,7 +48,6 @@ img {
 
 a {
 	text-decoration: none;
-	@include transition;
 }
 
 i {

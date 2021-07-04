@@ -79,20 +79,6 @@
 	visibility: visible;
 }
 
-@mixin pseudo($display: block, $pos: absolute, $content: '') {
-	content: $content;
-	display: $display;
-	position: $pos;
-}
-
-@mixin clearfix {
-	&:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-}
-
 @mixin reset_button() {
 	padding: 0px;
 	border: none;
@@ -124,19 +110,20 @@
 	}
 }
 
-@mixin svg_icon() {
+@mixin svg_icon($width, $height, $url) {
 	display: inline-block;
 	background: #000;
 	place-items: center center;
 	-webkit-mask-size: cover;
 	mask-size: cover;
+	width: $width;
+	height: $height;
+	-webkit-mask: url($url);
+	mask: url($url);
 }
 /* 
 Usage:
 .icon-instagram{
-	width: 16px;
-	height: 16px;
-	-webkit-mask: url(../img/i_instagram.svg); mask: url(../img/i_instagram.svg);
-	@include svg_icon;	
+	@include svg_icon(30px, 30px, ../img/i_instagram.svg);	
 } 
 */

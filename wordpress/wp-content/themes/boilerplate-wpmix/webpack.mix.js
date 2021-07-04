@@ -7,8 +7,8 @@ mix.webpackConfig({
 });
 
 mix
-	.js('src/js/app.js', 'js')
-	.sass('src/scss/app.scss', 'css')
+	.js(['src/js/main.js'], 'js')
+	.sass('src/scss/main.scss', 'css')
 	.sourceMaps()
 	.options({
 		processCssUrls: false,
