@@ -4,11 +4,11 @@
 
 `npm install`
 
-`npx mix watch` - To watch all files changes
+`npx run watch` - To watch all files changes
 
-`npx mix` - To build all files in development mode
+`npx run dev` - To build all files in development mode
 
-`npx mix --production` - To build all files in production mode
+`npx run prod` - To build all files in production mode
 
 ## Files explained
 
