@@ -72,11 +72,13 @@
 @mixin hidden() {
 	opacity: 0;
 	visibility: hidden;
+	@include transition;
 }
 
 @mixin visible() {
 	opacity: 1;
 	visibility: visible;
+	@include transition;
 }
 
 @mixin reset_button() {
@@ -86,9 +88,9 @@
 	@include border-radius(0px);
 	text-align: center;
 	cursor: pointer;
-	&:focus {
+	/* &:focus {
 		outline: 0;
-	}
+	} */
 }
 
 @mixin reset_ul() {
@@ -127,3 +129,7 @@ Usage:
 	@include svg_icon(30px, 30px, ../img/i_instagram.svg);	
 } 
 */
+
+@mixin toRem($property, $value) {
+	#{$property}: ($value / $base_font_size) + rem;
+}

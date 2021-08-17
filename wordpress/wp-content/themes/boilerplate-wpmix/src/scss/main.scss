@@ -1,23 +1,25 @@
 /*
  * Libraries
  */
-@import '~bootstrap/scss/bootstrap';
-@import '~slick-carousel/slick/slick';
-@import './lib/hamburgers/hamburgers';
+@import "./bootstrap-variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~slick-carousel/slick/slick";
+@import "./lib/hamburgers/hamburgers";
 
 /*
  * Configurations 
  */
-@import './fonts';
-@import './variables';
-@import './mixins';
-@import './helpers';
-@import './form-elements';
-@import './global';
-@import './typography';
+@import "./fonts";
+@import "./variables";
+@import "./mixins";
+@import "./helpers";
+@import "./form-elements";
+@import "./global";
+@import "./typography";
 
 /*
  * Partials
  */
-@import './partials/header';
-@import './partials/footer';
+@import "./partials/skip-navigation";
+@import "./partials/header";
+@import "./partials/footer";

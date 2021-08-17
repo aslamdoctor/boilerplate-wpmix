@@ -10,7 +10,8 @@
 			<div class="col-12">
 				<div class="text-center">Comments will appear here</div><!-- delete this line later -->
 
-				<?php //comments_template(); ?>
+				<?php //comments_template(); 
+				?>
 			</div>
 		</div>
 	</div>

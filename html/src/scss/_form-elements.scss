@@ -3,48 +3,77 @@ button,
 select,
 textarea,
 .form-control {
-	font-family: $font1;
-	line-height: normal;
+  font-family: $font1;
+  line-height: normal;
 }
 
 .form-control {
-	@include border-radius(0px);
-	height: 40px;
-	border: none;
-	border: 1px solid #ccc;
+  @include border-radius(0px);
+  height: 40px;
+  border: none;
+  border: 1px solid #ccc;
 
-	&:focus {
-		border-color: #000;
-		outline: 0;
-		box-shadow: none;
-	}
+  &:focus {
+    /* border-color: #000;
+    outline: 0; 
+    box-shadow: none;*/
+  }
 
-	&.wpcf7-not-valid {
-		border-color: red;
+  &.wpcf7-not-valid {
+    border-color: red;
 
-		& + .wpcf7-not-valid-tip {
-			text-align: left;
-		}
-	}
+    & + .wpcf7-not-valid-tip {
+      text-align: left;
+    }
+  }
 }
 
 textarea.form-control {
-	height: auto;
+  height: auto;
 }
 
 .the-button {
-	@include reset_button;
-	display: inline-block;
-	height: 40px;
-	line-height: 40px;
-	padding: 0px 20px;
+  @include reset_button;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 20px;
 
-	color: $black !important;
-	text-decoration: none !important;
-	background-color: #ccc;
+  color: $black !important;
+  text-decoration: none !important;
+  background-color: #ccc;
 
-	&:hover {
-		background-color: #000;
-		color: #fff !important;
-	}
+  &:hover {
+    background-color: #000;
+    color: #fff !important;
+  }
 }
+
+/****** Bootstrap buttons *******/
+/* .btn {
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  @include button-variant($red, $red, darken($red, 10%), darken($red, 10%), darken($red, 15%), darken($red, 15%));
+}
+
+.btn-outline-primary {
+  @include button-outline-variant($red, #fff, $red, $red);
+} */
+
+/* 
+.btn-secondary {
+  @include button-variant(#fff, #fff, darken(#fff, 10%), darken(#fff, 10%), darken(#fff, 15%), darken(#fff, 15%));
+  color: $blue;
+
+  &:hover {
+    color: $blue;
+  }
+}
+.btn-default {
+  &:hover {
+    opacity: 0.8;
+  }
+} */

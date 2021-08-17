@@ -1,115 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Home</title>
-		<link rel="stylesheet" href="dist/css/main.css" />
-	</head>
-	<body>
-		<div class="container mt-5">
-			<h1>Hello World!</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="dist/css/main.css" />
+  </head>
+  <body>
+    <ul class="skip-navigation">
+      <li><a href="#intro">Skip to intro</a></li>
+      <li><a href="#navigation">Skip to navigation</a></li>
+    </ul>
 
-			<hr />
+    <div class="container mt-5">
+      <h1>Hello World!</h1>
 
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus
-				dignissimos esse ipsam sint unde facilis omnis sit repellendus modi
-				molestiae.
-			</p>
+      <hr />
 
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus,
-				omnis?
-			</p>
+      <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Possimus dignissimos esse ipsam sint unde facilis omnis sit repellendus modi molestiae.</p>
 
-			<form>
-				<div class="form-group">
-					<label for="exampleFormControlInput1">Email address</label>
-					<input
-						type="email"
-						class="form-control"
-						id="exampleFormControlInput1"
-						placeholder="name@example.com"
-					/>
-				</div>
-				<div class="form-group">
-					<label for="exampleFormControlSelect1">Example select</label>
-					<select class="custom-select" id="exampleFormControlSelect1">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</div>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, omnis?</p>
 
-				<div class="form-group">
-					<label for="exampleFormControlSelect2">Example multiple select</label>
-					<select multiple class="form-control" id="exampleFormControlSelect2">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="exampleFormControlTextarea1">Example textarea</label>
-					<textarea
-						class="form-control"
-						id="exampleFormControlTextarea1"
-						rows="3"
-					></textarea>
-				</div>
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Example select</label>
+          <select class="custom-select" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
 
-				<div class="custom-control custom-radio">
-					<input
-						type="radio"
-						id="customRadio1"
-						name="customRadio"
-						class="custom-control-input"
-					/>
-					<label class="custom-control-label" for="customRadio1">
-						Toggle this custom radio
-					</label>
-				</div>
-				<div class="custom-control custom-radio">
-					<input
-						type="radio"
-						id="customRadio2"
-						name="customRadio"
-						class="custom-control-input"
-					/>
-					<label class="custom-control-label" for="customRadio2">
-						Or toggle this other custom radio
-					</label>
-				</div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Example multiple select</label>
+          <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Example textarea</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
 
-				<br />
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" />
+          <label class="custom-control-label" for="customRadio1"> Toggle this custom radio </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" />
+          <label class="custom-control-label" for="customRadio2"> Or toggle this other custom radio </label>
+        </div>
 
-				<div class="custom-control custom-checkbox mr-sm-2">
-					<input
-						type="checkbox"
-						class="custom-control-input"
-						id="customControlAutosizing"
-					/>
-					<label class="custom-control-label" for="customControlAutosizing">
-						Check me out
-					</label>
-				</div>
+        <br />
 
-				<hr />
+        <div class="custom-control custom-checkbox mr-sm-2">
+          <input type="checkbox" class="custom-control-input" id="customControlAutosizing" />
+          <label class="custom-control-label" for="customControlAutosizing"> Check me out </label>
+        </div>
 
-				<input type="submit" value="Submit" class="the-button" />
-			</form>
-		</div>
+        <hr />
 
-		<script
-			src="https://code.jquery.com/jquery-3.6.0.min.js"
-			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-			crossorigin="anonymous"
-		></script>
-		<script src="dist/js/main.js"></script>
-	</body>
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="dist/js/main.js"></script>
+  </body>
 </html>

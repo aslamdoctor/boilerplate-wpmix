@@ -3,22 +3,22 @@
 			<div class="row">
 				<div class="col-md-6">
 					<?php
-					wp_nav_menu( array(
+					wp_nav_menu(array(
 						'theme_location' => 'footer-menu',
 						'menu_id' => 'footer-menu',
 						'menu_class' => 'footer-menu',
 						'container' => false
-					) );
+					));
 					?>
 				</div>
 				<div class="col-md-6">
 					<?php
-					wp_nav_menu( array(
+					wp_nav_menu(array(
 						'theme_location' => 'socialmedia-menu',
 						'menu_id' => 'socialmedia-menu',
 						'menu_class' => 'socialmedia-menu',
 						'container' => false
-					) );
+					));
 					?>
 				</div>
 			</div>
@@ -31,11 +31,11 @@
 	</section>
 	<!-- #footer ends -->
 
-	
+
 	<?php wp_footer(); ?>
 
 	<!-- Don't forget analytics -->
 
-</body>
+	</body>
 
-</html>
+	</html>
