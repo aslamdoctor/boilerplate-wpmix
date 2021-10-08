@@ -26,6 +26,12 @@
 4. Hamburger CSS
 5. PostCSS Autoprefixer
 6. SASS Support
+7. Browsersync - This is not included by default but if you add below line inside webpack.mix.js, it will enable browsersync
+`
+mix.browserSync({
+    proxy: 'my-domain.local'
+});
+`
 
 ## Notes
 
