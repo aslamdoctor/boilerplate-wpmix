@@ -3196,7 +3196,7 @@ __webpack_require__.r(__webpack_exports__);
 (function ($) {
   // On Dom Ready
   $(function () {
-    console.log('Dom loaded...');
+    console.log("Dom loaded...");
   });
 })(jQuery);
 

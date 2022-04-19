@@ -26,16 +26,7 @@
 4. Hamburger CSS
 5. PostCSS Autoprefixer
 6. SASS Support
-7. Browsersync - This is not included by default but if you add below line inside webpack.mix.js, it will enable browsersync
-`
-mix.browserSync({
-    proxy: 'my-domain.local'
-});
-`
-
-## Notes
-
-1. Make sure you create "img" and "fonts" folders in project root so they can be shared with both "src" and "dist"
+7. Browsersync - Make sure to change the proxy url in webpack.mix.js file
 
 # 2. Install WordPress using WP-CLI
 
@@ -48,5 +39,5 @@ wp core download
 
 wp config create --dbname="myproject" --dbuser="admin" --dbpass="admin" --dbhost="localhost"
 
-wp core install --url="myproject.local" --title="My Project" --admin_user="admin" --admin_password="admin" --admin_email="aslam.doctor@gmail.com"
+wp core install --url="myproject.local" --title="My Project" --admin_user="admin" --admin_password="admin" --admin_email="your@email.com"
 ```
