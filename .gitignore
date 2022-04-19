@@ -1,0 +1,28 @@
+.DS_Store
+
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins", "plugins", "themes" directory
+wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+
+# ignore node dependency directories
+node_modules/
+
+# ignore wp-includes files
+wp-includes/
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+
+# ignore certain composer files and directories
+/vendor/
+.env
+composer
+composer.phar
+
+.idea
