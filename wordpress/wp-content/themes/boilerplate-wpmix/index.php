@@ -2,23 +2,15 @@
 
 <section id="posts">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h2>Latest Posts</h2>
-			</div>
-		</div>
+		<h1 class="page-title">Latest Posts</h1>
 
-		<?php if (have_posts()) : ?>
+		<?php if ( have_posts() ) : ?>
 
-			<?php get_template_part("template-parts/_loop_posts"); ?>
+			<?php get_template_part( 'template-parts/_loop_posts' ); ?>
 
 		<?php else : ?>
 
-			<div class="row">
-				<div class="col-md-12">
-					<h2>Nothing found</h2>
-				</div>
-			</div>
+			<h2>Nothing found</h2>
 
 		<?php endif; ?>
 	</div>

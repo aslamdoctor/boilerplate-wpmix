@@ -1,82 +1,104 @@
 .relative {
-	position: relative;
-	z-index: 0;
+  position: relative;
+  z-index: 0;
 }
 
 .overflow {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .no-gutters {
-	margin-right: 0;
-	margin-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 
-	> .col,
-	> [class*='col-'] {
-		padding-right: 0;
-		padding-left: 0;
-	}
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 .valign {
-	@include vertical-align;
+  @include vertical-align;
 }
 .halign {
-	@include horizontal-align;
+  @include horizontal-align;
 }
 .vhalign {
-	@include vertical-horizontal-align;
+  @include vertical-horizontal-align;
 }
 
 .reset-button {
-	@include reset_button;
+  @include reset_button;
 }
 
 .reset-ul {
-	@include reset_ul;
+  @include reset_ul;
 }
 
 .reset-ul-block {
-	@include reset_ul_block;
+  @include reset_ul_block;
 }
 
 .the-carousel {
-	display: none;
-	position: relative;
-	.the-slide {
-		position: relative;
-	}
+  display: none;
+  position: relative;
+  .the-slide {
+    position: relative;
+  }
 
-	.slick-arrow {
-		@include vertical-align;
-		z-index: 2;
-		cursor: pointer;
-		&.slick-prev {
-			left: 0px;
-		}
-		&.slick-next {
-			left: auto;
-			right: 0px;
-		}
-	}
+  .slick-arrow {
+    @include vertical-align;
+    z-index: 2;
+    cursor: pointer;
+    &.slick-prev {
+      left: 0px;
+    }
+    &.slick-next {
+      left: auto;
+      right: 0px;
+    }
+  }
 
-	ul.slick-dots {
-		@include reset_ul;
-		@include flex-center;
-		li {
-			button {
-				cursor: pointer;
-			}
+  ul.slick-dots {
+    @include reset_ul;
+    @include flex-center;
+    li {
+      button {
+        cursor: pointer;
+      }
 
-			&.slick-active {
-				button {
-					color: red;
-				}
-			}
-		}
-	}
+      &.slick-active {
+        button {
+          color: red;
+        }
+      }
+    }
+  }
 
-	&.slick-initialized {
-		display: block;
-	}
+  &.slick-initialized {
+    display: block;
+  }
+}
+
+.section-margin {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.section-margin-top {
+  margin-top: 50px;
+}
+.section-margin-bottom {
+  margin-bottom: 50px;
+}
+
+.section-padding {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.section-padding-top {
+  padding-top: 50px;
+}
+.section-padding-bottom {
+  padding-bottom: 50px;
 }
