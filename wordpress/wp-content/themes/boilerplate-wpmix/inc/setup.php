@@ -11,8 +11,10 @@ if ( ! function_exists( 'wpmix_setup_theme' ) ) {
 		add_theme_support( 'menus' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
+		add_theme_support( 'custom-logo' );
 
 		// Define Image Sizes.
+		add_image_size( 'header-logo', 200, 200, false );
 		add_image_size( 'thumb-360x240', 360, 240, true );
 		add_image_size( 'featured-1200x400', 1200, 400, true );
 

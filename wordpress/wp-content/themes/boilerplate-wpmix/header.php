@@ -30,7 +30,20 @@
 
 	<section id="header" class="clearfix">
 		<div class="container">
-			<a href="<?php bloginfo( 'url' ); ?>/" class="logo"><img src="https://source.unsplash.com/user/erondu/150x150" alt=""></a>
+			<a href="<?php bloginfo( 'url' ); ?>/" class="logo">
+				<?php
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+				echo wp_get_attachment_image(
+					$custom_logo_id,
+					'header-logo',
+					false,
+					array(
+						'class' => '',
+						'alt'   => get_bloginfo( 'name' ),
+					)
+				);
+				?>
+			</a>
 
 			<button class="btn-mobile-menu hamburger hamburger--slider d-lg-none" type="button">
 				<span class="hamburger-box">
