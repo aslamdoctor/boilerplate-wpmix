@@ -15,8 +15,9 @@ mix
     postCss: [require("autoprefixer")],
   })
   .sourceMaps(true, "source-map")
-  .setPublicPath("dist")
-  .browserSync({
-    proxy: "boilerplatewpmix.local",
-    files: ["src/**/*.css", "src/**/*.scss", "src/**/*.js", "./**/*.html", "./**/*.php"],
-  });
+  .setPublicPath("dist");
+
+mix.browserSync({
+  proxy: "boilerplatewpmix.local",
+  files: ["src/**/*.css", "src/**/*.scss", "src/**/*.js", "./**/*.html", "./**/*.php"],
+});
