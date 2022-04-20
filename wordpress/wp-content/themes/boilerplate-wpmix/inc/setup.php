@@ -2,8 +2,6 @@
 if ( ! function_exists( 'wpmix_setup_theme' ) ) {
 	/**
 	 * Enable Theme Features, Register Menus & Register Image Size
-	 *
-	 * @return void
 	 */
 	function wpmix_setup_theme() {
 		// Theme features.
@@ -21,11 +19,31 @@ if ( ! function_exists( 'wpmix_setup_theme' ) ) {
 		// Register Menus.
 		register_nav_menus(
 			array(
-				'top-menu'    => __( 'Top Menu', 'wpmix' ),
-				'mobile-menu' => __( 'Mobile Menu', 'wpmix' ),
-				'footer-menu' => __( 'Footer Menu', 'wpmix' ),
+				'top-menu' => __( 'Top Menu', 'wpmix' ),
 			)
 		);
 	}
 	add_action( 'after_setup_theme', 'wpmix_setup_theme' );
+}
+
+
+if ( ! function_exists( 'wpmix_widgets_init' ) ) {
+	/**
+	 * Register widget areas
+	 */
+	function wpmix_widgets_init() {
+
+		register_sidebar(
+			array(
+				'name'          => 'Footer Widgets',
+				'id'            => 'footer_widgets',
+				'before_widget' => '<div class="widget col-lg-4">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widget__title">',
+				'after_title'   => '</h3>',
+			)
+		);
+
+	}
+	add_action( 'widgets_init', 'wpmix_widgets_init' );
 }

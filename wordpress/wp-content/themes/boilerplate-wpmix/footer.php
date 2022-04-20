@@ -1,32 +1,11 @@
 	<section id="footer" class="clearfix">
 		<div class="container">
+			<?php if ( is_active_sidebar( 'footer_widgets' ) ) : ?>
 			<div class="row">
-				<div class="col-md-6">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer-menu',
-							'menu_id'        => 'footer-menu',
-							'menu_class'     => 'footer-menu',
-							'container'      => false,
-						)
-					);
-					?>
-				</div>
-				<div class="col-md-6">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'socialmedia-menu',
-							'menu_id'        => 'socialmedia-menu',
-							'menu_class'     => 'socialmedia-menu',
-							'container'      => false,
-						)
-					);
-					?>
-				</div>
-			</div>
-			
+				<?php dynamic_sidebar( 'footer_widgets' ); ?>
+			</div><!-- #primary-sidebar -->
+			<?php endif; ?>
+
 			<div class="copyright text-center">
 				&copy; <?php date( 'Y' ); ?> Boilerplate. All rights reserved.
 			</div>
