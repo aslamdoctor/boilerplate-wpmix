@@ -20,4 +20,6 @@ mix
 mix.browserSync({
   proxy: "boilerplatewpmix.local",
   files: ["src/**/*.css", "src/**/*.scss", "src/**/*.js", "./**/*.html", "./**/*.php"],
+  open: false,
+  reloadDelay: 1000,
 });
