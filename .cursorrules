@@ -1,0 +1,181 @@
+# WordPress Theme Development Rules for Cursor IDE
+# Based on phpcs.xml.dist configuration for WPMix theme
+
+## Project Overview
+This is a modern WordPress theme using PSR-4 autoloading, object-oriented architecture, and WordPress coding standards.
+
+## PHP Standards & Requirements
+
+### PHP Version
+- Target PHP 7.4+ compatibility
+- Use modern PHP features where appropriate
+- Follow WordPress coding standards
+
+### WordPress Coding Standards
+- Follow WordPress PHP Coding Standards exactly
+- Use proper WordPress hooks and filters
+- Implement WordPress best practices for themes
+- Use WordPress functions instead of native PHP where applicable
+
+### Text Domain & Internationalization
+- Always use "wpmix" as the text domain
+- Wrap all user-facing strings in translation functions: `__()`, `_e()`, `esc_html__()`, etc.
+- Example: `__( 'Hello World', 'wpmix' )`
+
+### Security & Escaping
+- Always escape output using appropriate WordPress functions:
+  - `esc_html()` for HTML content
+  - `esc_attr()` for HTML attributes
+  - `esc_url()` for URLs
+  - `wp_kses_post()` for post content
+- These functions are considered auto-escaped and don't need additional escaping:
+  - `get_the_title()`
+  - `get_the_archive_title()`
+  - `get_the_archive_description()`
+
+## File Structure & Naming
+
+### PSR-4 Class Files (`classes/` directory)
+- Use exact class name matching: `class Setup` → `Setup.php`
+- Use PascalCase for class names and filenames
+- All classes must use `WPMix\` namespace
+- Constructor-based initialization (no manual `init()` calls needed)
+- Example:
+  ```php
+  <?php
+  namespace WPMix;
+
+  class MyClass {
+      public function __construct() {
+          // Auto-register WordPress hooks here
+      }
+  }
+  ```
+
+### Template Parts (`template-parts/` directory)
+- Use underscore naming: `_the_post.php`, `_nav.php`, `_loop_posts.php`
+- Include proper file documentation headers
+- Follow WordPress template hierarchy
+
+### Regular PHP Files
+- Use lowercase with hyphens: `single-product.php`
+- Include proper file documentation headers
+- Follow WordPress template naming conventions
+
+## Class Architecture
+
+### Available Classes
+- `WPMix\Setup` - Theme setup, features, menus, widget areas
+- `WPMix\Enqueue` - Asset enqueuing with cache busting
+- `WPMix\Hooks` - WordPress hooks, filters, ACF integration
+- `WPMix\Helper` - Static utility methods (no initialization needed)
+- `WPMix\ClassicEditor` - Classic editor enhancements
+- `WPMix\BlockEditor` - Gutenberg block registration
+
+### Class Usage Patterns
+```php
+// Auto-initialization via constructor
+new \WPMix\Setup();
+new \WPMix\Enqueue();
+
+// Static helper methods
+\WPMix\Helper::get_thumb('large', 'featured-image', '/path/to/placeholder.jpg');
+```
+
+## File Documentation
+All PHP files must include proper documentation headers:
+
+```php
+<?php
+/**
+ * Brief description of the file
+ *
+ * @package WPMix
+ */
+```
+
+For template files:
+```php
+<?php
+/**
+ * The template for displaying [description]
+ *
+ * @package WPMix
+ */
+```
+
+## Asset Management
+
+### SCSS/CSS
+- Main entry point: `src/scss/main.scss`
+- Use `_variables.scss` for theme variables
+- Organize partials in `src/scss/partials/`
+- Compiled assets go to `dist/css/`
+
+### JavaScript
+- Main entry point: `src/js/main.js`
+- Compiled assets go to `dist/js/`
+- Use jQuery when needed
+
+## Development Workflow
+
+### Code Quality
+- Run `composer phpcs` to check coding standards
+- Run `composer phpcs-fix` to auto-fix issues
+- All code must pass PHPCS with zero errors
+
+### Build Process
+- Use `npm run dev` for development builds
+- Use `npm run watch` for active development
+- Use `npm run prod` for production builds
+
+## Exclusions & Ignored Patterns
+Do not apply coding standards to:
+- `/vendor/*` - Composer dependencies
+- `/node_modules/*` - NPM dependencies
+- `/dist/*` - Compiled assets
+- `*.min.js` and `*.min.css` - Minified files
+- Hidden files (.*) except `.cursorrules`
+
+## WordPress Integration
+
+### Hooks & Filters
+- Use constructor-based hook registration in classes
+- Prefer class methods over anonymous functions for hooks
+- Use proper hook priorities when needed
+
+### Custom Post Types & Fields
+- Store ACF field groups in `acf-json/` directory
+- Use version-controlled field definitions
+
+### Template Hierarchy
+- Follow WordPress template hierarchy exactly
+- Use `get_template_part()` for reusable components
+- Implement proper fallbacks for missing templates
+
+## Best Practices
+
+### Performance
+- Use WordPress caching functions where appropriate
+- Implement proper asset versioning with `filemtime()`
+- Use static methods in Helper class for utilities
+
+### Maintainability
+- Keep functions.php minimal - use classes instead
+- Separate concerns into dedicated classes
+- Use meaningful variable and function names
+- Comment complex logic thoroughly
+
+### Modern PHP
+- Use type declarations where appropriate
+- Leverage PHP 7.4+ features (typed properties, arrow functions)
+- Follow PSR-4 autoloading standards
+- Use namespaces properly
+
+## Error Handling
+- Use WordPress error handling functions: `WP_Error`, `is_wp_error()`
+- Validate and sanitize all input data
+- Check user capabilities before executing sensitive operations
+- Provide meaningful error messages for debugging
+
+Remember: This theme prioritizes clean, modern, object-oriented WordPress development while maintaining full compatibility with WordPress coding standards.

@@ -1,25 +1,27 @@
 # Boilerplate WPMix Theme
 
-A modern WordPress starter theme built with Laravel Mix, Bootstrap 5, and WordPress coding standards. This theme provides a solid foundation for WordPress development with a modern build process and development tools.
+A modern WordPress starter theme built with Laravel Mix and WordPress coding standards. This theme provides a solid foundation for WordPress development with a modern build process, PSR-4 autoloading, and object-oriented architecture.
 
-**Version:** 3.0.1
+**Version:** 3.1.0
 **Author:** Aslam Doctor
 **Text Domain:** wpmix
 
 ## Features
 
 - **Laravel Mix 6** for asset compilation and build process
-- **Bootstrap 5.1** for responsive design and components
 - **SASS/SCSS** support with organized structure
-- **jQuery** integration (external dependency)
+- **jQuery** integration
 - **Hamburger CSS** for animated menu icons
 - **PostCSS Autoprefixer** for vendor prefixes
 - **BrowserSync** for live reloading during development
 - **ACF Pro** support with JSON field synchronization
-- **WordPress Coding Standards** (WPCS) integration
+- **WordPress Coding Standards** integration
 - **PHPStan** for static analysis
 - **PHPCS** for code formatting and standards
 - **PSR-4 Autoloading** for custom classes
+- **Object-Oriented Architecture**
+- **Static Helper Methods** for common utility functions
+- **Google Fonts Integration**
 
 ## Requirements
 
@@ -150,7 +152,6 @@ boilerplate-wpmix/
 │       ├── custom-editor-style.scss # Classic editor styles
 │       ├── block-editor-style.scss # Block editor (Gutenberg) styles
 │       ├── _variables.scss      # SCSS variables
-│       ├── _bootstrap-variables.scss # Bootstrap customization
 │       ├── _mixins.scss         # SCSS mixins
 │       ├── _global.scss         # Global styles
 │       ├── _typography.scss     # Typography styles
@@ -170,13 +171,13 @@ boilerplate-wpmix/
 │   │   └── block-editor-style.min.css
 │   └── js/
 │       └── main.js
-├── classes/                     # PSR-4 autoloaded classes (WPMix namespace)
+├── classes/                     # PSR-4 autoloaded classes
 │   ├── Setup.php               # Theme setup and configuration
 │   ├── Enqueue.php             # Asset enqueuing with cache busting
 │   ├── Hooks.php               # WordPress hooks and filters
-│   ├── Helper.php              # Utility and helper functions
-│   ├── ClassicEditor.php       # Classic editor enhancements and TinyMCE customization
-│   └── BlockEditor.php         # Gutenberg block registration and custom block styles
+│   ├── Helper.php              # Static utility and helper methods
+│   ├── ClassicEditor.php       # Classic editor enhancements
+│   └── BlockEditor.php         # Gutenberg block registration
 ├── blocks/                      # Custom Gutenberg blocks (optional)
 │   └── purple-cta-band/
 ├── template-parts/              # Reusable template parts
@@ -202,13 +203,13 @@ boilerplate-wpmix/
 - `footer.php` - Site footer
 
 ### Key PHP Files
-- `functions.php` - Main functions file (loads autoloader and initializes classes)
+- `functions.php` - Main functions file with class initialization
 - `classes/Setup.php` - Theme setup, menus, image sizes, widget areas
 - `classes/Enqueue.php` - Asset enqueuing with cache busting
 - `classes/Hooks.php` - WordPress hooks and filters
-- `classes/Helper.php` - Static utility and helper functions
-- `classes/ClassicEditor.php` - Classic editor enhancements and TinyMCE customization
-- `classes/BlockEditor.php` - Gutenberg block registration and custom block styles
+- `classes/Helper.php` - Static utility and helper methods
+- `classes/ClassicEditor.php` - Classic editor enhancements
+- `classes/BlockEditor.php` - Gutenberg block registration
 
 ## Development Tools
 
@@ -238,13 +239,26 @@ Recommended VSCode extensions:
 
 The theme includes VSCode settings for proper integration with PHPCS and WordPress Coding Standards.
 
+### Code Quality Status
+
+**WordPress Coding Standards Compliant**
+- All PHP files include proper documentation headers
+- PSR-4 autoloading with filename exceptions for classes
+- Template parts support underscore naming conventions
+- Zero PHPCS errors across the codebase
+
+**Modern Architecture**
+- Constructor-based initialization
+- Static utility methods
+- Proper separation of concerns
+- PSR-4 autoloading for custom functionality
+
 ## Customization
 
 ### SCSS Variables
 
 Customize the theme by modifying variables in:
-- `src/scss/_variables.scss` - Theme-specific variables
-- `src/scss/_bootstrap-variables.scss` - Bootstrap customization
+- `src/scss/_variables.scss` - Theme variables
 
 ### Adding Custom Styles
 
@@ -258,30 +272,75 @@ Add your JavaScript to `src/js/main.js` or create new JS files and import them.
 
 ### PHP Classes
 
-The theme uses a modern object-oriented approach with PSR-4 autoloading. All classes are located in the `classes/` directory and use the `WPMix\` namespace.
+The theme uses object-oriented architecture with PSR-4 autoloading. All classes are located in the `classes/` directory and use the `WPMix\` namespace.
 
 **Available Classes:**
-- `WPMix\Setup` - Handles theme setup, features, menus, and widget areas
-- `WPMix\Enqueue` - Manages CSS and JavaScript asset enqueuing
-- `WPMix\Hooks` - Contains WordPress hooks, filters, and ACF integration
-- `WPMix\Helper` - Provides static utility methods for common operations
-- `WPMix\ClassicEditor` - Enhances the classic editor with custom styles and TinyMCE functionality
-- `WPMix\BlockEditor` - Manages Gutenberg block registration and custom block styles
+- `WPMix\Setup` - Theme setup, features, menus, and widget areas
+- `WPMix\Enqueue` - CSS and JavaScript asset enqueuing
+- `WPMix\Hooks` - WordPress hooks, filters, and ACF integration
+- `WPMix\Helper` - Static utility methods for common operations
+- `WPMix\ClassicEditor` - Classic editor enhancements
+- `WPMix\BlockEditor` - Gutenberg block registration
 
-**Helper Class Methods:**
-- `Helper::get_thumb($size, $css_class, $placeholder)` - Get post thumbnail with fallback
-- `Helper::crop_text($text, $length)` - Crop text to specified length
-- `Helper::get_excerpt($limit)` - Get custom excerpt with word limit
-- `Helper::get_css_classes($classes)` - Get sanitized CSS class string
+**Initialization:**
+Classes automatically register WordPress hooks when instantiated:
 
-Add custom PHP classes to the `classes/` directory. They will be automatically autoloaded using PSR-4 standard with the namespace `WPMix\`.
+```php
+// In functions.php
+new \WPMix\Setup();
+new \WPMix\Enqueue();
+new \WPMix\Hooks();
+```
+
+**Helper Methods:**
+- `\WPMix\Helper::get_thumb($size, $css_class, $placeholder)`
+- `\WPMix\Helper::crop_text($text, $length)`
+- `\WPMix\Helper::get_excerpt($limit)`
+- `\WPMix\Helper::get_css_classes($classes)`
+- `\WPMix\Helper::is_post_type($post_type)`
+
+**Usage:**
+```php
+<?php \WPMix\Helper::get_thumb('large', 'featured-image', '/path/to/placeholder.jpg'); ?>
+```
+
+### Migration from Procedural to OOP
+
+**Before:**
+```php
+// Old functions.php with manual includes and init calls
+require get_template_directory() . '/inc/setup.php';
+require get_template_directory() . '/inc/enqueue.php';
+require get_template_directory() . '/inc/custom_functions.php';
+
+$setup = new \WPMix\Setup();
+$setup->init();
+```
+
+**After:**
+```php
+// New functions.php - clean and simple
+require_once get_template_directory() . '/vendor/autoload.php';
+
+new \WPMix\Setup();
+new \WPMix\Enqueue();
+new \WPMix\Hooks();
+new \WPMix\Helper();
+```
+
+**Benefits:**
+- Less code in functions.php
+- Automatic initialization
+- Better organization
+- Static utilities
+- PSR-4 compliant
 
 ### Classic Editor Enhancements
 
 The `ClassicEditor` class provides several enhancements to the WordPress classic editor:
 
 **TinyMCE Style Formats:**
-- Lead Paragraph - Applies Bootstrap's `.lead` class to paragraphs
+- Lead Paragraph - Applies `.lead` class to paragraphs
 - Small - Inline small text element
 - Cite - Citation inline element
 
@@ -289,7 +348,7 @@ The `ClassicEditor` class provides several enhancements to the WordPress classic
 - Custom editor stylesheet support (`dist/css/custom-editor-style.min.css`)
 - Style dropdown in TinyMCE toolbar
 - ACF WYSIWYG toolbar with only bold formatting ("Only Bold" toolbar option)
-- Bootstrap-compatible styling for editor content
+- Consistent styling for editor content
 - Typography matching frontend styles
 
 ### Block Editor (Gutenberg) Enhancements
@@ -308,7 +367,7 @@ The theme supports registration of custom Gutenberg blocks from the `blocks/` di
 - Safe registration with file existence checking
 - Custom block styles for core WordPress blocks
 - Scoped editor styles that don't affect admin UI
-- Bootstrap-compatible styling for Gutenberg blocks
+- Consistent styling for Gutenberg blocks
 - Extensible architecture for adding new blocks
 
 **Block Editor Stylesheet:**
@@ -329,7 +388,19 @@ The theme registers the following navigation menus:
 ### Widget Areas
 
 The theme includes the following widget areas:
-- **Footer Widgets** - Three-column footer widget area with Bootstrap grid classes
+- **Footer Widgets** - Three-column footer widget area
+
+### Template Structure
+
+**Removed Components:**
+- Comments system
+- Legacy include files
+
+**Enhanced Components:**
+- Google Fonts integration
+- Static helper methods
+- Constructor initialization
+- Clean template parts
 
 ## Advanced Custom Fields (ACF)
 
@@ -337,6 +408,14 @@ The theme includes support for ACF Pro with JSON field synchronization:
 - Field groups are stored in `acf-json/` directory
 - Automatically synced between environments
 - Version controlled field definitions
+
+## Recommended Plugins
+
+The following plugins work well with this theme:
+
+1. **[Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)** - Custom fields management
+2. **[Classic Editor](https://wordpress.org/plugins/classic-editor/)** - If you don't want block support
+3. **[Query Monitor](https://wordpress.org/plugins/query-monitor/)** - Debug and performance monitoring
 
 ## Production Deployment
 
@@ -359,7 +438,7 @@ The theme includes support for ACF Pro with JSON field synchronization:
 
 ## Browser Support
 
-The theme supports modern browsers with automatic vendor prefixing via PostCSS Autoprefixer. Bootstrap 5 browser support applies.
+The theme supports modern browsers with automatic vendor prefixing via PostCSS Autoprefixer.
 
 ## Contributing
 
