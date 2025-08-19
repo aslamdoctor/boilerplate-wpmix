@@ -1,35 +1,21 @@
-.DS_Store
-
-wordpress/*
-!wordpress/_utilities
-!wordpress/wp-content
-
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
-
-# ignore node dependency directories
+# ignore node dependency directories (used by grunt)
 node_modules/
 
-# ignore wp-includes files
-wp-includes/
-
-# ignore wp-admin files
-wp-admin/
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+.DS_Store
 
 # ignore log files and databases
 *.log
 *.sql
 *.sqlite
 
-
 # ignore certain composer files and directories
-/vendor/
+vendor/
 .env
 composer
 composer.phar
 
-.idea
+# ignore build files
+dist/
