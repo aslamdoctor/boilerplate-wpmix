@@ -4,6 +4,7 @@
  *
  * @package WPMix
  */
+
 // Get block id.
 $class_name = 'purple-cta-band text-center';
 
