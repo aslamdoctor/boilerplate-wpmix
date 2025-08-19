@@ -307,7 +307,12 @@ The theme supports registration of custom Gutenberg blocks from the `blocks/` di
 - Automatic block registration from `blocks/` directory
 - Safe registration with file existence checking
 - Custom block styles for core WordPress blocks
+- Scoped editor styles that don't affect admin UI
+- Bootstrap-compatible styling for Gutenberg blocks
 - Extensible architecture for adding new blocks
+
+**Block Editor Stylesheet:**
+The theme includes `dist/css/block-editor-style.min.css` that is properly scoped under `.editor-styles-wrapper` to ensure styles only affect the block editor content area and not the WordPress admin interface. This provides a consistent editing experience that matches your frontend styling.
 
 ### Custom Image Sizes
 

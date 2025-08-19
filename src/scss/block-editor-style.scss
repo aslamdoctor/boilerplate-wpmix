@@ -1,19 +1,29 @@
+/**
+ * Block Editor Styles
+ *
+ * Styles specifically for the Gutenberg block editor content area.
+ * All styles are scoped under .editor-styles-wrapper to prevent
+ * affecting the admin UI.
+ *
+ * @package WPMix
+ */
+
 /*
  * Libraries
  */
 @import "./bootstrap-variables";
 @import "~bootstrap/scss/bootstrap";
-@import "./lib/hamburgers/hamburgers";
 
 /*
-	* Configurations
-	*/
+ * Configurations
+ */
 @import "./fonts";
 @import "./variables";
 @import "./mixins";
 @import "./helpers";
-@import "./form-elements";
-@import "./global";
 @import "./typography";
-@import "./partials";
-@import "./blocks";
+
+// Scope all styles to editor content area only
+.editor-styles-wrapper {
+	@import "./blocks";
+}

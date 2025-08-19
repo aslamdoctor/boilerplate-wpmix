@@ -2,7 +2,7 @@ $heading-margin: 1.4rem;
 $content-margin: 1.4rem;
 $img-margin: 1.4rem;
 
-.typography {
+@mixin typography {
 	h1 {
 		margin-bottom: $heading-margin;
 	}
@@ -78,4 +78,8 @@ $img-margin: 1.4rem;
 
 	blockquote {
 	}
+}
+
+.typography {
+	@include typography;
 }
