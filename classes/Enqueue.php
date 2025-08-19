@@ -23,6 +23,7 @@ class Enqueue {
 	 */
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_assets' ) );
 	}
 
 	/**
@@ -33,12 +34,12 @@ class Enqueue {
 	public function enqueue_assets() {
 		// Stylesheets.
 		wp_register_style(
-			'wpmix-main-css',
+			'wpmix-main-style',
 			( get_template_directory_uri() . '/dist/css/main.css' ),
 			array(),
 			filemtime( get_stylesheet_directory() . '/dist/css/main.css' )
 		);
-		wp_enqueue_style( 'wpmix-main-css' );
+		wp_enqueue_style( 'wpmix-main-style' );
 
 		// Javascripts.
 		wp_register_script(
@@ -61,20 +62,18 @@ class Enqueue {
 	}
 
 	/**
-	 * Enqueue admin assets (if needed in the future).
-	 *
-	 * @return void
-	 */
-	public function enqueue_admin_assets() {
-		// Add admin-specific assets here if needed.
-	}
-
-	/**
 	 * Enqueue editor assets (if needed in the future).
 	 *
 	 * @return void
 	 */
 	public function enqueue_editor_assets() {
-		// Add block editor specific assets here if needed.
+		// Stylesheets.
+		wp_register_style(
+			'wpmix-block-editor-style',
+			( get_template_directory_uri() . '/dist/css/block-editor-style.min.css' ),
+			array(),
+			filemtime( get_stylesheet_directory() . '/dist/css/block-editor-style.min.css' )
+		);
+		wp_enqueue_style( 'wpmix-block-editor-style' );
 	}
 }

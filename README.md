@@ -66,8 +66,9 @@ mix.browserSync({
 
 ### Build Commands
 
+#### Build All Files
 ```bash
-# Development build with source maps
+# Development build with source maps (all files)
 npm run dev
 
 # Watch for file changes (recommended for development)
@@ -83,20 +84,59 @@ npm run hot
 npm run prod
 ```
 
+#### Build Specific Files (Faster Development)
+```bash
+# Build only main files (JS + main CSS)
+npm run dev:main
+npm run watch:main
+npm run prod:main
+
+# Build only custom editor styles
+npm run dev:custom-editor
+npm run watch:custom-editor
+npm run prod:custom-editor
+
+# Build only block editor styles
+npm run dev:block-editor
+npm run watch:block-editor
+npm run prod:block-editor
+```
+
 ### Watching Files
 
-For active development, use the watch command:
+For active development, choose the appropriate watch command based on what you're working on:
 
+#### Watch All Files (Full Development)
 ```bash
 npm run watch
 ```
 
 This will:
-- Compile SCSS to CSS
+- Compile all SCSS files to CSS
 - Bundle JavaScript files
 - Generate source maps
 - Start BrowserSync for live reloading
 - Watch for changes in PHP, SCSS, JS, and HTML files
+
+#### Watch Specific Files (Faster Development)
+When working on specific areas, use targeted watch commands for faster compilation:
+
+```bash
+# Main theme development (JS + main CSS + BrowserSync)
+npm run watch:main
+
+# Only custom editor styles (faster for editor-specific changes)
+npm run watch:custom-editor
+
+# Only block editor styles (faster for Gutenberg-specific changes)
+npm run watch:block-editor
+```
+
+**Benefits of Specific Builds:**
+- ⚡ **Faster compilation** - Only builds what you're working on
+- 🎯 **Focused development** - Clear separation of concerns
+- 💻 **Reduced resource usage** - Less CPU and memory consumption
+- 🔄 **Quicker iteration** - Faster feedback loop during development
 
 ## File Structure
 
@@ -108,6 +148,7 @@ boilerplate-wpmix/
 │   └── scss/
 │       ├── main.scss            # Main SCSS entry point
 │       ├── custom-editor-style.scss # Classic editor styles
+│       ├── block-editor-style.scss # Block editor (Gutenberg) styles
 │       ├── _variables.scss      # SCSS variables
 │       ├── _bootstrap-variables.scss # Bootstrap customization
 │       ├── _mixins.scss         # SCSS mixins
@@ -125,7 +166,8 @@ boilerplate-wpmix/
 ├── dist/                        # Compiled assets (auto-generated)
 │   ├── css/
 │   │   ├── main.css
-│   │   └── custom-editor-style.min.css
+│   │   ├── custom-editor-style.min.css
+│   │   └── block-editor-style.min.css
 │   └── js/
 │       └── main.js
 ├── classes/                     # PSR-4 autoloaded classes (WPMix namespace)
@@ -133,7 +175,14 @@ boilerplate-wpmix/
 │   ├── Enqueue.php             # Asset enqueuing with cache busting
 │   ├── Hooks.php               # WordPress hooks and filters
 │   ├── Helper.php              # Utility and helper functions
-│   └── ClassicEditor.php       # Classic editor enhancements and TinyMCE customization
+│   ├── ClassicEditor.php       # Classic editor enhancements and TinyMCE customization
+│   └── BlockEditor.php         # Gutenberg block registration and custom block styles
+├── blocks/                      # Custom Gutenberg blocks (optional)
+│   ├── photoslider/
+│   ├── icon-with-text-dark/
+│   ├── icon-with-text-light/
+│   ├── accordion/
+│   └── purple-cta-band/
 ├── template-parts/              # Reusable template parts
 │   ├── _loop_posts.php
 │   ├── _nav.php
@@ -163,6 +212,7 @@ boilerplate-wpmix/
 - `classes/Hooks.php` - WordPress hooks and filters
 - `classes/Helper.php` - Static utility and helper functions
 - `classes/ClassicEditor.php` - Classic editor enhancements and TinyMCE customization
+- `classes/BlockEditor.php` - Gutenberg block registration and custom block styles
 
 ## Development Tools
 
@@ -220,6 +270,7 @@ The theme uses a modern object-oriented approach with PSR-4 autoloading. All cla
 - `WPMix\Hooks` - Contains WordPress hooks, filters, and ACF integration
 - `WPMix\Helper` - Provides static utility methods for common operations
 - `WPMix\ClassicEditor` - Enhances the classic editor with custom styles and TinyMCE functionality
+- `WPMix\BlockEditor` - Manages Gutenberg block registration and custom block styles
 
 **Helper Class Methods:**
 - `Helper::get_thumb($size, $css_class, $placeholder)` - Get post thumbnail with fallback
@@ -244,6 +295,27 @@ The `ClassicEditor` class provides several enhancements to the WordPress classic
 - ACF WYSIWYG toolbar with only bold formatting ("Only Bold" toolbar option)
 - Bootstrap-compatible styling for editor content
 - Typography matching frontend styles
+
+### Block Editor (Gutenberg) Enhancements
+
+The `BlockEditor` class provides enhancements for the Gutenberg block editor:
+
+**Custom Block Types:**
+The theme supports registration of custom Gutenberg blocks from the `blocks/` directory:
+- Photoslider - Image carousel block
+- Icon with Text (Dark) - Icon with text content in dark theme
+- Icon with Text (Light) - Icon with text content in light theme
+- Accordion - Collapsible content sections
+- Purple CTA Band - Call-to-action banner block
+
+**Custom Block Styles:**
+- Introduction Paragraph - Special styling for introduction paragraphs
+
+**Features:**
+- Automatic block registration from `blocks/` directory
+- Safe registration with file existence checking
+- Custom block styles for core WordPress blocks
+- Extensible architecture for adding new blocks
 
 ### Custom Image Sizes
 

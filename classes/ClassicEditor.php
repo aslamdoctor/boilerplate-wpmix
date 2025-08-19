@@ -2,7 +2,7 @@
 /**
  * Classic Editor Class
  *
- * Handles classic editor assets for the theme.
+ * Handles classic editor related functionality for the theme.
  *
  * @package WPMix
  */
@@ -12,7 +12,7 @@ namespace WPMix;
 /**
  * Class ClassicEditor
  *
- * Contains all classic editor assets functionality for the theme.
+ * Contains all classic editor related functionality for the theme.
  */
 class ClassicEditor {
 

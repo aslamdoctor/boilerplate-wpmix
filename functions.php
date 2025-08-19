@@ -16,3 +16,4 @@ new \WPMix\Enqueue();
 new \WPMix\Hooks();
 new \WPMix\Helper();
 new \WPMix\ClassicEditor();
+new \WPMix\BlockEditor();

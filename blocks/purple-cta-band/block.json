@@ -1,0 +1,13 @@
+{
+	"name": "acf/purple-cta-band",
+	"title": "Purple CTA Band",
+	"description": "Purple CTA Band",
+	"category": "design",
+	"icon": "editor-insertmore",
+	"keywords": ["purple-cta-band", "purple", "cta", "band"],
+	"acf": {
+			"mode": "auto",
+			"renderTemplate": "purple-cta-band.php"
+	},
+	"align": "full"
+}

@@ -1,0 +1,18 @@
+.purple-cta-band {
+	background-color: rgb(242, 170, 242);
+	padding: 20px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+
+	.cta__links {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		justify-content: center;
+		gap: 30px;
+	}
+}
