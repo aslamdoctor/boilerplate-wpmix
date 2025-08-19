@@ -9,21 +9,23 @@
  */
 
 /*
- * Libraries
- */
-@import "./bootstrap-variables";
-@import "~bootstrap/scss/bootstrap";
-
-/*
  * Configurations
  */
 @import "./fonts";
 @import "./variables";
 @import "./mixins";
 @import "./helpers";
+@import "./layout";
+@import "./global";
 @import "./typography";
 
 // Scope all styles to editor content area only
 .editor-styles-wrapper {
+	font-family: $font1;
+	color: $black;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+
+	@include global_styles();
 	@import "./blocks";
 }

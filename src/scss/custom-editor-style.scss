@@ -7,7 +7,22 @@
  * @package WPMix
  */
 
-// Import Bootstrap variables and mixins for consistency
-@import "variables";
-@import "bootstrap-variables";
-@import "mixins";
+/*
+ * Configurations
+ */
+@import "./fonts";
+@import "./variables";
+@import "./mixins";
+@import "./helpers";
+@import "./layout";
+@import "./global";
+@import "./typography";
+
+.wp-editor {
+	font-family: $font1;
+	color: $black;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+
+	@include global_styles();
+}

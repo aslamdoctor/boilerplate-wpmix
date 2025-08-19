@@ -1,69 +1,60 @@
-:root {
-	font-size: $base_font_size;
-}
+@mixin global_styles {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		font-family: $font2;
+	}
 
-body {
-	font-family: $font1;
-	color: $black;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-}
+	*:focus,
+	a:focus,
+	a:active {
+		/* outline: none; */
+		color: inherit;
+		text-decoration: inherit;
+	}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-	font-family: $font2;
-}
+	br {
+		font-size: inherit;
+		line-height: inherit;
+	}
 
-*:focus,
-a:focus,
-a:active {
-	/* outline: none; */
-	color: inherit;
-	text-decoration: inherit;
-}
+	section {
+		display: block;
+	}
 
-br {
-	font-size: inherit;
-	line-height: inherit;
-}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
 
-section {
-	display: block;
-}
+	a {
+		text-decoration: none;
+	}
 
-img {
-	max-width: 100%;
-	height: auto;
-}
+	i {
+		color: inherit;
+		font-size: inherit;
+	}
 
-a {
-	text-decoration: none;
-}
+	strong {
+		font-size: inherit;
+		line-height: inherit;
+	}
 
-i {
-	color: inherit;
-	font-size: inherit;
-}
+	iframe {
+		max-width: 100%;
+	}
 
-strong {
-	font-size: inherit;
-	line-height: inherit;
-}
-
-iframe {
-	max-width: 100%;
-}
-
-svg {
-	display: inline-block;
+	svg {
+		display: inline-block;
+	}
 }

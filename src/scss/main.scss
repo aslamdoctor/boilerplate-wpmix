@@ -1,8 +1,6 @@
 /*
  * Libraries
  */
-@import "./bootstrap-variables";
-@import "~bootstrap/scss/bootstrap";
 @import "./lib/hamburgers/hamburgers";
 
 /*
@@ -12,8 +10,22 @@
 @import "./variables";
 @import "./mixins";
 @import "./helpers";
-@import "./form-elements";
+@import "./layout";
 @import "./global";
+
+:root {
+	font-size: $base_font_size;
+}
+
+body {
+	font-family: $font1;
+	color: $black;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+@include global_styles;
+
 @import "./typography";
 @import "./partials";
 @import "./blocks";

@@ -88,5 +88,12 @@ class BlockEditor {
 	 * @return void
 	 */
 	public function enqueue_editor_assets() {
+		// Enqueue Google Fonts.
+		wp_enqueue_style(
+			'wpmix-google-fonts',
+			'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,600;1,600&display=swap',
+			array(),
+			null
+		);
 	}
 }

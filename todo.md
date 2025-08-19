@@ -1,2 +1,2 @@
-- [ ] Remove bootstrap and add native css styles
+- [x] Remove bootstrap and add native css styles
 - [ ] add `theme.json` support

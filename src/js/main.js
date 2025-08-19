@@ -1,5 +1,3 @@
-import "bootstrap";
-
 (function ($) {
 	// On Dom Ready
 	$(function () {
