@@ -2,7 +2,7 @@
 
 A modern WordPress starter theme built with Laravel Mix, Bootstrap 5, and WordPress coding standards. This theme provides a solid foundation for WordPress development with a modern build process and development tools.
 
-**Version:** 3.0.0
+**Version:** 3.0.1
 **Author:** Aslam Doctor
 **Text Domain:** wpmix
 
