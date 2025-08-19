@@ -302,10 +302,6 @@ The `BlockEditor` class provides enhancements for the Gutenberg block editor:
 
 **Custom Block Types:**
 The theme supports registration of custom Gutenberg blocks from the `blocks/` directory:
-- Photoslider - Image carousel block
-- Icon with Text (Dark) - Icon with text content in dark theme
-- Icon with Text (Light) - Icon with text content in light theme
-- Accordion - Collapsible content sections
 - Purple CTA Band - Call-to-action banner block
 
 **Custom Block Styles:**
