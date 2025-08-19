@@ -1,0 +1,13 @@
+/**
+ * Custom Editor Styles
+ *
+ * Styles specifically for the WordPress classic editor
+ * to match the frontend styling and provide better editing experience.
+ *
+ * @package WPMix
+ */
+
+// Import Bootstrap variables and mixins for consistency
+@import "variables";
+@import "bootstrap-variables";
+@import "mixins";

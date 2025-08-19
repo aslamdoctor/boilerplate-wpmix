@@ -33,22 +33,31 @@ class Enqueue {
 	public function enqueue_assets() {
 		// Stylesheets.
 		wp_register_style(
-			'wpmix_main_css',
+			'wpmix-main-css',
 			( get_template_directory_uri() . '/dist/css/main.css' ),
 			array(),
 			filemtime( get_stylesheet_directory() . '/dist/css/main.css' )
 		);
-		wp_enqueue_style( 'wpmix_main_css' );
+		wp_enqueue_style( 'wpmix-main-css' );
 
 		// Javascripts.
 		wp_register_script(
-			'wpmix_main_js',
+			'wpmix-main-js',
 			( get_template_directory_uri() . '/dist/js/main.js' ),
 			array( 'jquery' ),
 			filemtime( get_stylesheet_directory() . '/dist/js/main.js' ),
 			true
 		);
-		wp_enqueue_script( 'wpmix_main_js' );
+		wp_enqueue_script( 'wpmix-main-js' );
+
+		// localize variables.
+		wp_localize_script(
+			'wpmix-main-js',
+			'wpmix_params',
+			array(
+				'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX url.
+			)
+		);
 	}
 
 	/**

@@ -15,3 +15,4 @@ new \WPMix\Setup();
 new \WPMix\Enqueue();
 new \WPMix\Hooks();
 new \WPMix\Helper();
+new \WPMix\ClassicEditor();

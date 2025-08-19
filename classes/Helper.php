@@ -71,12 +71,9 @@ class Helper {
 
 		if ( count( $excerpt ) >= $limit ) {
 			array_pop( $excerpt );
-			$excerpt = implode( ' ', $excerpt ) . '...';
-		} else {
-			$excerpt = implode( ' ', $excerpt );
 		}
+		$excerpt = implode( ' ', $excerpt ) . '...';
 
-		// Remove shortcodes.
 		$excerpt = preg_replace( '`\[[^\]]*\]`', '', $excerpt );
 
 		return $excerpt;
@@ -97,12 +94,22 @@ class Helper {
 	}
 
 	/**
-	 * Check if current page is a specific post type.
+	 * ACF: Get link html generated using acf link field
 	 *
-	 * @param string $post_type Post type to check.
-	 * @return bool True if current page is the specified post type.
+	 * @param array  $link Link object.
+	 * @param array  $other_attr Other attributes.
+	 * @param string $icon Icon to place after the link text.
+	 * @return string
 	 */
-	public static function is_post_type( $post_type ) {
-		return get_post_type() === $post_type;
+	public static function acf_get_link_html( $link, $other_attr = array(), $icon = '' ) {
+		$other_attr_html = '';
+		if ( $other_attr ) {
+			foreach ( $other_attr as $key => $value ) {
+				$other_attr_html .= ' ' . $key . '="' . $value . '"';
+			}
+		}
+		$link_html = '<a href="' . esc_url( $link['url'] ) . '" target="' . esc_attr( $link['target'] ) . '" ' . $other_attr_html . '>' . esc_html( $link['title'] ) . $icon . '</a> ';
+
+		return $link_html;
 	}
 }

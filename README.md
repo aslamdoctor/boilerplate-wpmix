@@ -107,6 +107,7 @@ boilerplate-wpmix/
 │   │   └── main.js              # Main JavaScript entry point
 │   └── scss/
 │       ├── main.scss            # Main SCSS entry point
+│       ├── custom-editor-style.scss # Classic editor styles
 │       ├── _variables.scss      # SCSS variables
 │       ├── _bootstrap-variables.scss # Bootstrap customization
 │       ├── _mixins.scss         # SCSS mixins
@@ -123,14 +124,16 @@ boilerplate-wpmix/
 │           └── _skip-navigation.scss
 ├── dist/                        # Compiled assets (auto-generated)
 │   ├── css/
-│   │   └── main.css
+│   │   ├── main.css
+│   │   └── custom-editor-style.min.css
 │   └── js/
 │       └── main.js
 ├── classes/                     # PSR-4 autoloaded classes (WPMix namespace)
 │   ├── Setup.php               # Theme setup and configuration
 │   ├── Enqueue.php             # Asset enqueuing with cache busting
 │   ├── Hooks.php               # WordPress hooks and filters
-│   └── Helper.php              # Utility and helper functions
+│   ├── Helper.php              # Utility and helper functions
+│   └── ClassicEditor.php       # Classic editor enhancements and TinyMCE customization
 ├── template-parts/              # Reusable template parts
 │   ├── _loop_posts.php
 │   ├── _nav.php
@@ -159,6 +162,7 @@ boilerplate-wpmix/
 - `classes/Enqueue.php` - Asset enqueuing with cache busting
 - `classes/Hooks.php` - WordPress hooks and filters
 - `classes/Helper.php` - Static utility and helper functions
+- `classes/ClassicEditor.php` - Classic editor enhancements and TinyMCE customization
 
 ## Development Tools
 
@@ -215,15 +219,31 @@ The theme uses a modern object-oriented approach with PSR-4 autoloading. All cla
 - `WPMix\Enqueue` - Manages CSS and JavaScript asset enqueuing
 - `WPMix\Hooks` - Contains WordPress hooks, filters, and ACF integration
 - `WPMix\Helper` - Provides static utility methods for common operations
+- `WPMix\ClassicEditor` - Enhances the classic editor with custom styles and TinyMCE functionality
 
 **Helper Class Methods:**
 - `Helper::get_thumb($size, $css_class, $placeholder)` - Get post thumbnail with fallback
 - `Helper::crop_text($text, $length)` - Crop text to specified length
 - `Helper::get_excerpt($limit)` - Get custom excerpt with word limit
 - `Helper::get_css_classes($classes)` - Get sanitized CSS class string
-- `Helper::is_post_type($post_type)` - Check if current page is specific post type
 
 Add custom PHP classes to the `classes/` directory. They will be automatically autoloaded using PSR-4 standard with the namespace `WPMix\`.
+
+### Classic Editor Enhancements
+
+The `ClassicEditor` class provides several enhancements to the WordPress classic editor:
+
+**TinyMCE Style Formats:**
+- Lead Paragraph - Applies Bootstrap's `.lead` class to paragraphs
+- Small - Inline small text element
+- Cite - Citation inline element
+
+**Editor Features:**
+- Custom editor stylesheet support (`dist/css/custom-editor-style.min.css`)
+- Style dropdown in TinyMCE toolbar
+- ACF WYSIWYG toolbar with only bold formatting ("Only Bold" toolbar option)
+- Bootstrap-compatible styling for editor content
+- Typography matching frontend styles
 
 ### Custom Image Sizes
 
