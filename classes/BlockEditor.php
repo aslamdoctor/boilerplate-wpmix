@@ -24,6 +24,7 @@ class BlockEditor {
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_block_types' ) );
 		add_action( 'init', array( $this, 'register_block_styles' ) );
+		add_action( 'after_setup_theme', array( $this, 'enable_editor_styles' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_assets' ) );
 	}
 
@@ -69,18 +70,23 @@ class BlockEditor {
 	}
 
 	/**
-	 * Enqueue editor assets (if needed in the future).
+	 * Enable editor styles.
+	 *
+	 * @return void
+	 */
+	public function enable_editor_styles() {
+		add_theme_support( 'editor-styles' );
+		add_editor_style( get_template_directory_uri() . '/dist/css/block-editor-style.min.css' );
+
+		// Adding support for core block visual styles.
+		add_theme_support( 'wp-block-styles' );
+	}
+
+	/**
+	 * Enqueue editor assets (like scripts, fonts etc but don't enqueue styles here as it will effect admin ui).
 	 *
 	 * @return void
 	 */
 	public function enqueue_editor_assets() {
-		// Stylesheets.
-		wp_register_style(
-			'wpmix-block-editor-style',
-			( get_template_directory_uri() . '/dist/css/block-editor-style.min.css' ),
-			array(),
-			filemtime( get_stylesheet_directory() . '/dist/css/block-editor-style.min.css' )
-		);
-		wp_enqueue_style( 'wpmix-block-editor-style' );
 	}
 }
