@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * @package WPMix
+ */
+
+get_header(); ?>
 
 	<section id="posts">
 		<div class="container">
@@ -14,7 +21,7 @@
 				<h1 class="page-title">Archive for <?php the_time( 'Y' ); ?></h1>
 			<?php /* If this is an author archive */ } elseif ( is_author() ) { ?>
 				<h1 class="page-title">Posted by <?php the_author(); ?></h1>
-			<?php /* If this is a paged archive */ } elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) { ?>
+			<?php /* If this is a paged archive */ } elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
 				<h1 class="page-title">Blog Archives</h1>
 			<?php } ?>
 

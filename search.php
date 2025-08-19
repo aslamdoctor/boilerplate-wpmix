@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying search results pages
+ *
+ * @package WPMix
+ */
+
+get_header(); ?>
 
 <section id="posts">
 	<div class="container">

@@ -1,3 +1,13 @@
+<?php
+/**
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @package WPMix
+ */
+
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -18,8 +28,6 @@
 	?>
 
 	<?php wp_head(); ?>
-
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" />
 </head>
 
 <body <?php body_class(); ?>>
@@ -42,9 +50,6 @@
 						'alt'   => get_bloginfo( 'name' ),
 					)
 				);
-
-				$test = 'Hello';
-				echo '<span class="logo-text">' . $test . '</span>';
 				?>
 			</a>
 

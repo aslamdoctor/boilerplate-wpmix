@@ -1,4 +1,14 @@
-	<section id="footer" class="clearfix">
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @package WPMix
+ */
+
+?>
+<section id="footer" class="clearfix">
 		<div class="container">
 			<?php if ( is_active_sidebar( 'footer_widgets' ) ) : ?>
 			<div class="row">
@@ -7,7 +17,7 @@
 			<?php endif; ?>
 
 			<div class="copyright text-center">
-				&copy; <?php date( 'Y' ); ?> Boilerplate. All rights reserved.
+				&copy; <?php gmdate( 'Y' ); ?> Boilerplate. All rights reserved.
 			</div>
 		</div>
 	</section>

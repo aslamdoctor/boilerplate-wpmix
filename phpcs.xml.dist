@@ -16,7 +16,7 @@
 	<arg value="s"/>
 
 	<!-- Check for cross-version support for PHP 5.2 and higher. -->
-	<config name="testVersion" value="5.2-"/>
+	<config name="testVersion" value="7.4-"/>
 
 	<!-- Scan these files -->
 	<file>.</file>
@@ -64,6 +64,25 @@
 	<!-- Exclude incorrectly named files that won't be renamed. -->
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
 		<exclude-pattern>/inc/class-wp-bootstrap-navwalker\.php</exclude-pattern>
+	</rule>
+
+		<!--
+		Exclude PSR-4 class files from WordPress filename rules.
+		PSR-4 autoloading requires exact class name matching (e.g., Setup.php for class Setup).
+		WordPress standards prefer lowercase with hyphens (e.g., class-setup.php).
+		Since we're using Composer autoloading, PSR-4 naming is required.
+	-->
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>/classes/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
+		<exclude-pattern>/classes/*</exclude-pattern>
+	</rule>
+
+	<!-- Allow underscores in template part filenames. -->
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>/template-parts/*</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.Security.EscapeOutput">

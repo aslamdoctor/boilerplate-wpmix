@@ -1,9 +1,38 @@
 <?php
-if ( ! function_exists( 'wpmix_setup_theme' ) ) {
+/**
+ * Setup Class
+ *
+ * Handles all theme setup functionality including theme features,
+ * image sizes, menus, and widget areas.
+ *
+ * @package WPMix
+ */
+
+namespace WPMix;
+
+/**
+ * Class Setup
+ *
+ * Contains all theme setup and initialization functionality.
+ */
+class Setup {
+
 	/**
-	 * Enable Theme Features, Register Menus & Register Image Size
+	 * Class constructor.
+	 *
+	 * Automatically initializes setup hooks and actions when class is instantiated.
 	 */
-	function wpmix_setup_theme() {
+	public function __construct() {
+		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
+		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+	}
+
+	/**
+	 * Enable Theme Features, Register Menus & Register Image Size.
+	 *
+	 * @return void
+	 */
+	public function setup_theme() {
 		// Theme features.
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'menus' );
@@ -23,16 +52,13 @@ if ( ! function_exists( 'wpmix_setup_theme' ) ) {
 			)
 		);
 	}
-	add_action( 'after_setup_theme', 'wpmix_setup_theme' );
-}
 
-
-if ( ! function_exists( 'wpmix_widgets_init' ) ) {
 	/**
-	 * Register widget areas
+	 * Register widget areas.
+	 *
+	 * @return void
 	 */
-	function wpmix_widgets_init() {
-
+	public function widgets_init() {
 		register_sidebar(
 			array(
 				'name'          => 'Footer Widgets',
@@ -43,7 +69,5 @@ if ( ! function_exists( 'wpmix_widgets_init' ) ) {
 				'after_title'   => '</h3>',
 			)
 		);
-
 	}
-	add_action( 'widgets_init', 'wpmix_widgets_init' );
 }

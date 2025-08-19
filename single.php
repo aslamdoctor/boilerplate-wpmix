@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying single posts
+ *
+ * @package WPMix
+ */
+
+get_header(); ?>
 
 <?php
 if ( have_posts() ) :
@@ -12,7 +19,7 @@ if ( have_posts() ) :
 
 				<div class="page-content">
 
-					<?php wpmix_get_thumb( 'featured-1200x400', 'featured-image', '' ); ?>
+					<?php \WPMix\Helper::get_thumb( 'featured-1200x400', 'featured-image', '' ); ?>
 
 					<?php the_content(); ?>
 
@@ -21,9 +28,6 @@ if ( have_posts() ) :
 			</div>
 		</section>
 		<!-- #content ends -->
-
-
-		<?php get_template_part( 'template-parts/_comments' ); ?>
 
 		<?php
 endwhile;

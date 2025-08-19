@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (not found)
+ *
+ * @package WPMix
+ */
+
+get_header(); ?>
 
 <section id="content">
 	<div class="container">

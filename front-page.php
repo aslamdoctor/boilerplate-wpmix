@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying the front page
+ *
+ * @package WPMix
+ */
+
+get_header(); ?>
 
 <?php
 if ( have_posts() ) :
@@ -11,7 +18,7 @@ if ( have_posts() ) :
 				<h1 class="page-title"><?php the_title(); ?></h1>
 
 				<div class="page-content">
-					<?php wpmix_get_thumb( 'featured-1200x400', 'featured-image', '' ); ?>
+					<?php \WPMix\Helper::get_thumb( 'featured-1200x400', 'featured-image', '' ); ?>
 
 					<?php the_content(); ?>
 				</div>

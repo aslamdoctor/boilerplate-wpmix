@@ -2,12 +2,16 @@
 
 A modern WordPress starter theme built with Laravel Mix, Bootstrap 5, and WordPress coding standards. This theme provides a solid foundation for WordPress development with a modern build process and development tools.
 
+**Version:** 3.0.0
+**Author:** Aslam Doctor
+**Text Domain:** wpmix
+
 ## Features
 
-- **Laravel Mix** for asset compilation and build process
-- **Bootstrap 5** for responsive design and components
+- **Laravel Mix 6** for asset compilation and build process
+- **Bootstrap 5.1** for responsive design and components
 - **SASS/SCSS** support with organized structure
-- **jQuery** integration
+- **jQuery** integration (external dependency)
 - **Hamburger CSS** for animated menu icons
 - **PostCSS Autoprefixer** for vendor prefixes
 - **BrowserSync** for live reloading during development
@@ -53,7 +57,7 @@ Edit the proxy URL in `webpack.mix.js` to match your local development URL:
 
 ```javascript
 mix.browserSync({
-  proxy: "your-site.local", // Change this to your local URL
+  proxy: "boilerplatewpmix.local", // Change this to your local URL
   // ... other options
 });
 ```
@@ -110,6 +114,7 @@ boilerplate-wpmix/
 │       ├── _typography.scss     # Typography styles
 │       ├── _form-elements.scss  # Form styling
 │       ├── _helpers.scss        # Utility classes
+│       ├── _fonts.scss          # Font definitions
 │       ├── lib/                 # Third-party libraries
 │       │   └── hamburgers/      # Hamburger menu animations
 │       └── partials/            # Component-specific styles
@@ -121,18 +126,15 @@ boilerplate-wpmix/
 │   │   └── main.css
 │   └── js/
 │       └── main.js
-├── inc/                         # PHP includes
-│   ├── setup.php               # Theme setup and configuration
-│   ├── enqueue.php             # Asset enqueuing
-│   ├── hooks.php               # WordPress hooks and filters
-│   ├── custom_functions.php    # Custom PHP functions
-│   └── theme_options.php       # Theme options (optional)
+├── classes/                     # PSR-4 autoloaded classes (WPMix namespace)
+│   ├── Setup.php               # Theme setup and configuration
+│   ├── Enqueue.php             # Asset enqueuing with cache busting
+│   ├── Hooks.php               # WordPress hooks and filters
+│   └── Helper.php              # Utility and helper functions
 ├── template-parts/              # Reusable template parts
-│   ├── _comments.php
 │   ├── _loop_posts.php
 │   ├── _nav.php
 │   └── _the_post.php
-├── classes/                     # PSR-4 autoloaded classes
 ├── acf-json/                    # ACF field group JSON files
 ├── img/                         # Static images
 └── vendor/                      # Composer dependencies
@@ -150,14 +152,13 @@ boilerplate-wpmix/
 - `404.php` - 404 error template
 - `header.php` - Site header
 - `footer.php` - Site footer
-- `comments.php` - Comments template
 
 ### Key PHP Files
-- `functions.php` - Main functions file (loads all includes)
-- `inc/setup.php` - Theme setup, menus, image sizes, widget areas
-- `inc/enqueue.php` - Asset enqueuing with cache busting
-- `inc/hooks.php` - WordPress hooks and filters
-- `inc/custom_functions.php` - Custom utility functions
+- `functions.php` - Main functions file (loads autoloader and initializes classes)
+- `classes/Setup.php` - Theme setup, menus, image sizes, widget areas
+- `classes/Enqueue.php` - Asset enqueuing with cache busting
+- `classes/Hooks.php` - WordPress hooks and filters
+- `classes/Helper.php` - Static utility and helper functions
 
 ## Development Tools
 
@@ -207,7 +208,39 @@ Add your JavaScript to `src/js/main.js` or create new JS files and import them.
 
 ### PHP Classes
 
-Add custom PHP classes to the `classes/` directory. They will be autoloaded using PSR-4 standard with the namespace `WPMix\`.
+The theme uses a modern object-oriented approach with PSR-4 autoloading. All classes are located in the `classes/` directory and use the `WPMix\` namespace.
+
+**Available Classes:**
+- `WPMix\Setup` - Handles theme setup, features, menus, and widget areas
+- `WPMix\Enqueue` - Manages CSS and JavaScript asset enqueuing
+- `WPMix\Hooks` - Contains WordPress hooks, filters, and ACF integration
+- `WPMix\Helper` - Provides static utility methods for common operations
+
+**Helper Class Methods:**
+- `Helper::get_thumb($size, $css_class, $placeholder)` - Get post thumbnail with fallback
+- `Helper::crop_text($text, $length)` - Crop text to specified length
+- `Helper::get_excerpt($limit)` - Get custom excerpt with word limit
+- `Helper::get_css_classes($classes)` - Get sanitized CSS class string
+- `Helper::is_post_type($post_type)` - Check if current page is specific post type
+
+Add custom PHP classes to the `classes/` directory. They will be automatically autoloaded using PSR-4 standard with the namespace `WPMix\`.
+
+### Custom Image Sizes
+
+The theme defines several custom image sizes for flexibility:
+- `header-logo` - 200x200px (not cropped)
+- `thumb-360x240` - 360x240px (cropped)
+- `featured-1200x400` - 1200x400px (cropped)
+
+### Navigation Menus
+
+The theme registers the following navigation menus:
+- **Top Menu** - Primary navigation menu
+
+### Widget Areas
+
+The theme includes the following widget areas:
+- **Footer Widgets** - Three-column footer widget area with Bootstrap grid classes
 
 ## Advanced Custom Fields (ACF)
 

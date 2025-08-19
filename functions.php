@@ -1,6 +1,17 @@
 <?php
-require get_template_directory() . '/inc/setup.php';
-require get_template_directory() . '/inc/enqueue.php';
-require get_template_directory() . '/inc/hooks.php';
-require get_template_directory() . '/inc/custom_functions.php';
-// include( get_template_directory() . '/inc/theme_options.php' );
+/**
+ * Functions and definitions
+ *
+ * Main functions file that loads all theme components.
+ *
+ * @package WPMix
+ */
+
+// Load Composer autoloader.
+require_once get_template_directory() . '/vendor/autoload.php';
+
+// Initialize theme classes.
+new \WPMix\Setup();
+new \WPMix\Enqueue();
+new \WPMix\Hooks();
+new \WPMix\Helper();
