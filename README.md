@@ -178,10 +178,6 @@ boilerplate-wpmix/
 │   ├── ClassicEditor.php       # Classic editor enhancements and TinyMCE customization
 │   └── BlockEditor.php         # Gutenberg block registration and custom block styles
 ├── blocks/                      # Custom Gutenberg blocks (optional)
-│   ├── photoslider/
-│   ├── icon-with-text-dark/
-│   ├── icon-with-text-light/
-│   ├── accordion/
 │   └── purple-cta-band/
 ├── template-parts/              # Reusable template parts
 │   ├── _loop_posts.php
